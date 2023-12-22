@@ -1,0 +1,15 @@
+namespace: hw4-test
+resources:
+  - deployment_frontapp.yaml
+  - deployment_backapp.yaml
+  - service_frontapp.yaml
+  - service_backapp.yaml
+  - ingress.yaml
+patches:
+  - target:
+      kind: Ingress
+      name: hw4test
+    patch: |-
+      - op: add
+        path: /spec/rules/0/host
+        value: other.cubix.localhost

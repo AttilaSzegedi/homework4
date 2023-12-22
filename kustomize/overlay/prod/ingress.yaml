@@ -1,7 +1,5 @@
-apiVersion: networking.k8s.io/v1
-kind: Ingress
 metadata:
-  name: hw4
+  name: hw4prod
   labels:
     app: frontapp
 spec:

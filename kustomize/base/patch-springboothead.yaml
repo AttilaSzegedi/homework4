@@ -1,0 +1,5 @@
+labels:
+  training: block4
+spec:
+  - name: JAVA_OPTS
+    value: ""

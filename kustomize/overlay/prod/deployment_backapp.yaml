@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: hw4
+  name: backapp
   labels:
     app: backapp
     homework: backapp
@@ -25,4 +25,4 @@ spec:
         - name: APP_DEFAULT_MESSAGE
           value: "backapp"
         - name: JAVA_OPTS
-          value: ""
+          value: -Dspring.main.banner-mode=off

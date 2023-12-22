@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: hw4
+  name: frontapp
   labels:
     app: frontapp
     homework: frontapp
