@@ -7,4 +7,4 @@ metadata:
     homework: backapp
 spec:
   replicas: 1
-
+  

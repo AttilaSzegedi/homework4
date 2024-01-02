@@ -1,16 +1,14 @@
 namespace: hw4-prod
+commonLabels:
+  training: block4
 resources:
-  - deployment_frontapp.yaml
-  - deployment_backapp.yaml
-  - service_frontapp.yaml
-  - service_backapp.yaml
   - ingress.yaml
 patches:
 - path: patch_replicacount_backapp.yaml
 - path: patch_replicacount_frontapp.yaml
 - target:
     kind: Ingress
-    name: hw4prod
+    name: hw4-prod
   patch: |-
     - op: add
       path: /spec/rules/0/host
