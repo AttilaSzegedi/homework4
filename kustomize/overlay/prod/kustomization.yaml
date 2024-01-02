@@ -2,10 +2,15 @@ namespace: hw4-prod
 commonLabels:
   training: block4
 resources:
+  - ../../base
   - ingress.yaml
 patches:
 - path: patch_replicacount_backapp.yaml
 - path: patch_replicacount_frontapp.yaml
+- path: patch_backapp_var.yaml
+- path: patch_frontapp_var.yaml
+- path: patch_springboothead_frontapp.yaml
+- path: patch_springboothead_backapp.yaml
 - target:
     kind: Ingress
     name: hw4-prod
