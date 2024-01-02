@@ -1,5 +1,5 @@
 metadata:
-  name: hw4prod
+  name: hw4-prod
   labels:
     app: frontapp
 spec:

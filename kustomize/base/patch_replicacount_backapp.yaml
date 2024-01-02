@@ -1,0 +1,10 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hw4-backapp
+  labels:
+    app: backapp
+    homework: backapp
+spec:
+  replicas: 1
+

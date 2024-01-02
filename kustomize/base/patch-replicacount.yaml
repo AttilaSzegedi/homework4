@@ -1,6 +1,0 @@
-metadata:
-  name: hw4
-labels:
-  app: backapp
-spec:
- replicas: 2

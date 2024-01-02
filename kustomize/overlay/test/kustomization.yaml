@@ -6,10 +6,12 @@ resources:
   - service_backapp.yaml
   - ingress.yaml
 patches:
-  - target:
-      kind: Ingress
-      name: hw4test
-    patch: |-
-      - op: add
-        path: /spec/rules/0/host
-        value: other.cubix.localhost
+- path: patch_replicacount_backapp.yaml
+- path: patch_replicacount_frontapp.yaml
+- target:
+    kind: Ingress
+    name: hw4test
+  patch: |-
+    - op: add
+      path: /spec/rules/0/host
+      value: other.cubix.localhost

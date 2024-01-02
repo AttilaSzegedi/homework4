@@ -1,4 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
 metadata:
-  name: hw4dev
-
-
+  name: hw4
+  labels:
+    app: frontapp
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /frontapp
+        pathType: Prefix
+        backend: 
+          service:
+            name: frontapp
+            port:
+              number: 8080

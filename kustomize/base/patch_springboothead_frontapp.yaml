@@ -6,7 +6,6 @@ metadata:
     app: backapp
     homework: backapp
 spec:
-  replicas: 1
   selector:
     matchLabels:
       app: backapp
@@ -14,11 +13,6 @@ spec:
     spec:
       containers:
       - name: backapp
-        image: quay.io/drsylent/cubix/block3/homework-backapp:springboot3
-        ports:
-        - containerPort: 8080
         env:
-        - name: APP_DEFAULT_MESSAGE
-          value: "backapp"
         - name: JAVA_OPTS
           value: ""

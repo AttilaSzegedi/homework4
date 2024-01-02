@@ -1,3 +1,8 @@
 namespace: hw4-dev
+commonLabels:
+  training: block4
 resources:
   - ingress.yaml
+patches:
+- path: patch_replicacount_backapp.yaml
+- path: patch_replicacount_frontapp.yaml
