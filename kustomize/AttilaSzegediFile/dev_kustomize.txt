@@ -1,0 +1,127 @@
+ kubectl kustomize overlay/dev
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: backapp
+    homework: backapp
+    training: block4
+  name: hw4-backapp
+  namespace: hw4-dev
+spec:
+  ports:
+  - port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: backapp
+    training: block4
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: frontapp
+    homework: frontapp
+    training: block4
+  name: hw4-frontapp
+  namespace: hw4-dev
+spec:
+  ports:
+  - port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: frontapp
+    training: block4
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: backapp
+    homework: backapp
+    training: block4
+  name: hw4-backapp
+  namespace: hw4-dev
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backapp
+      training: block4
+  template:
+    metadata:
+      labels:
+        training: block4
+    spec:
+      containers:
+      - env:
+        - name: ""
+          value: ""
+        - name: ""
+          value: ""
+        - name: APP_DEFAULT_MESSAGE
+          value: backapp
+        - name: JAVA_OPTS
+          value: ""
+        image: quay.io/drsylent/cubix/block3/homework-backapp:springboot3
+        name: backapp
+        ports:
+        - containerPort: 8080
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: frontapp
+    homework: frontapp
+    replicaselector: hw4
+    training: block4
+  name: hw4-frontapp
+  namespace: hw4-dev
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontapp
+      training: block4
+  template:
+    metadata:
+      labels:
+        training: block4
+    spec:
+      containers:
+      - env:
+        - name: ""
+          value: ""
+        - name: APP_DEFAULT_MESSAGE
+          value: frontapp
+        - name: JAVA_OPTS
+          value: ""
+        - name: BACK_URL
+          value: http://backapp:8080
+        image: quay.io/drsylent/cubix/block3/homework-frontapp:springboot3
+        name: frontapp
+        ports:
+        - containerPort: 8080
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  labels:
+    app: frontapp
+    training: block4
+  name: hw4
+  namespace: hw4-dev
+spec:
+  rules:
+  - http:
+      paths:
+      - backend:
+          service:
+            name: frontapp
+            port:
+              number: 8080
+        path: /frontapp
+        pathType: Prefix

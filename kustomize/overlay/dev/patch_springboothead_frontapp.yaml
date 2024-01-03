@@ -1,18 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: hw4-backapp
+  name: frontapp
   labels:
-    app: backapp
-    homework: backapp
+    app: frontapp
+    homework: frontapp
 spec:
   selector:
     matchLabels:
-      app: backapp
+      app: frontapp
+      homework: frontapp
   template:
     spec:
       containers:
-      - name: backapp
+      - name: frontapp
         env:
         - name: JAVA_OPTS
           value: ""

@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: hw4-backapp
+  name: backapp
   labels:
     app: backapp
     homework: backapp
@@ -14,5 +14,5 @@ spec:
       containers:
       - name: backapp
         env:
-        - name: ""
+        - name: ENVBACKAPP
           value: ""

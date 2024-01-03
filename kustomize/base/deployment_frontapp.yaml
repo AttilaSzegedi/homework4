@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: hw4-frontapp
+  name: frontapp
   labels:
     app: frontapp
     homework: frontapp
@@ -11,6 +11,10 @@ spec:
     matchLabels:
       app: frontapp
   template:
+    metadata:
+      labels:
+        app: frontapp
+        homework: frontapp
     spec:
       containers:
       - name: frontapp

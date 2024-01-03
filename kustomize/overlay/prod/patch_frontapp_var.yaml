@@ -1,11 +1,10 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: hw4-frontapp
+  name: frontapp
   labels:
     app: frontapp
     homework: frontapp
-    replicaselector: hw4
 spec:
   selector:
     matchLabels:
@@ -15,5 +14,5 @@ spec:
       containers:
       - name: frontapp
         env:
-          - name: ""
+          - name: ENVFRONTAPP
             value: ""

@@ -1,11 +1,12 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: hw4-prod
+  name: hw4prod
   labels:
     app: frontapp
 spec:
   rules:
+  - host: application.cubix.localhost
   - http:
       paths:
       - path: /frontapp

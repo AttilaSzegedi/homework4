@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: hw4-backapp
+  name: backapp
   labels:
     app: backapp
     homework: backapp
@@ -9,10 +9,15 @@ spec:
   selector:
     matchLabels:
       app: backapp
+      homework: backapp
   template:
+    metadata:
+      labels:
+        app: backapp
+        homework: backapp
     spec:
       containers:
       - name: backapp
         env:
         - name: JAVA_OPTS
-          value: ""
+          value: "-Dspring.main.banner-mode=off"
