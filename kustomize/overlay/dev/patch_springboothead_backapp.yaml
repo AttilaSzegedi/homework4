@@ -20,4 +20,4 @@ spec:
       - name: backapp
         env:
         - name: JAVA_OPTS
-          value: "-Dspring.main.banner-mode=off"
+          value: -Dspring.main.banner-mode=on

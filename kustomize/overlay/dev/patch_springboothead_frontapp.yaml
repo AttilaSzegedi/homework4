@@ -16,4 +16,4 @@ spec:
       - name: frontapp
         env:
         - name: JAVA_OPTS
-          value: ""
+          value: -Dspring.main.banner-mode=on

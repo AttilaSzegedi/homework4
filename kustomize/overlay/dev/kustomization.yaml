@@ -2,9 +2,5 @@ namespace: hw4-dev
 resources:
   - ../../base
 patches:
-- path: patch_replicacount_backapp.yaml
-- path: patch_replicacount_frontapp.yaml
-- path: patch_backapp_var.yaml
-- path: patch_frontapp_var.yaml
 - path: patch_springboothead_frontapp.yaml
 - path: patch_springboothead_backapp.yaml
